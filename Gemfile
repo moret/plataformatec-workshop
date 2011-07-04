@@ -30,4 +30,6 @@ gem 'simple_form', '~> 1.4.2'
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara',  '~>1.0.0'
+  gem 'factory_girl', '~> 1.3.3'
+  gem 'factory_girl_rails'
 end

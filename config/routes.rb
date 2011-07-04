@@ -1,5 +1,7 @@
 Workshop::Application.routes.draw do
-  resources :posts
+  resources :posts do
+      resources :comments, :only => :create, :controller => "posts/comments"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

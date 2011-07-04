@@ -2,4 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  flash:
+    posts:
+      comments:
+        create:
+          notice: "Your comment was successfully added to the post."
+  simple_form:
+    labels:
+      comment:
+        body: "My comment"

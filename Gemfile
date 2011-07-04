@@ -9,7 +9,7 @@ gem 'sqlite3'
 
 # Asset template engines
 gem 'json'
-gem 'sass-rails', "~> 3.1.0.rc"
+gem 'sass-rails', '~> 3.1.0.rc'
 gem 'coffee-script'
 gem 'uglifier'
 
@@ -24,9 +24,10 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug'
 
-gem "responders", "~> 0.6.4"
-gem "simple_form", "~> 1.4.2"
+gem 'responders', '~> 0.6.4'
+gem 'simple_form', '~> 1.4.2'
 
 group :development, :test do
-  gem "rspec-rails"
+  gem 'rspec-rails'
+  gem 'capybara',  '~>1.0.0'
 end

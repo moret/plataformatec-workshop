@@ -1,0 +1,21 @@
+@import "compass/css3/border-radius";
+
+body {
+  font: sans-serif;
+}
+
+#flash_notice, #flash_alert {
+  padding: 0.5em;
+  border: solid 1px #CCC;
+  @include border-radius(0.4em);
+}
+
+#flash_notice {
+  background-color: #EFE;
+  border-color: #0F0;
+}
+
+#flash_alert {
+  background-color: #FEE;
+  border-color: #F00;
+}

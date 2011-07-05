@@ -1,10 +1,48 @@
 @import "compass/css3/border-radius";
 
+$red_bg: #FEE;
+$red_border: #F00;
+
+
 body {
   font: sans-serif;
 }
 
-#flash_notice, #flash_alert {
+.simple_form {
+  label {
+    display: block;
+  }
+
+  label abbr {
+    color: #F00;
+  }
+
+  div.input {
+    margin: 1.2em;
+  }
+
+  input, textarea {
+    padding: 0.5em;
+    border: solid 1px #000;
+    @include border-radius(0.4em);
+  }
+
+  span.error {
+    padding: 0.5em;
+    background-color: $red_bg;
+    border: solid 1px $red_border;
+    @include border-radius(0.8em);
+  }
+
+  .field_with_errors {
+    input, textarea {
+      border: solid 1px $red_border;
+      @include border-radius(0.4em);
+    }
+  }
+}
+
+#flash_notice, #flash_alert, p.error_notification {
   padding: 0.5em;
   border: solid 1px #CCC;
   @include border-radius(0.4em);
@@ -15,7 +53,7 @@ body {
   border-color: #0F0;
 }
 
-#flash_alert {
-  background-color: #FEE;
-  border-color: #F00;
+#flash_alert, p.error_notification {
+  background-color: $red_bg;
+  border-color: $red_border;
 }

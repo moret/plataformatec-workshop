@@ -1,5 +1,6 @@
 class Posts::CommentsController < ApplicationController
   before_filter :find_post
+  respond_to :html, :js
 
   def create
     @comment = @post.comments.build(params[:comment])

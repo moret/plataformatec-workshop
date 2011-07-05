@@ -1,4 +1,4 @@
-<%= simple_form_for [@post, @comment || Comment.new] do |f| %>
+<%= simple_form_for [@post, @comment || Comment.new], :remote => true do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">

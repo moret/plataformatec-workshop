@@ -3,8 +3,9 @@ class Posts::CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.build(params[:comment])
-    @comment.save
-    respond_with(@post, @comment, :location => @post)
+    respond_with(@post, @comment, :location => @post) do |format|
+      format.html { render "posts/show" } unless @comment.save
+    end
   end
 
   private

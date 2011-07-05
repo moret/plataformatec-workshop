@@ -10,4 +10,8 @@ module ApplicationHelper
     end
     content
   end
+
+  def js(content)
+    "\"#{escape_javascript content}\"".html_safe
+  end
 end

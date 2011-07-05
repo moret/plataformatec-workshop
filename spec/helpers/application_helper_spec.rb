@@ -18,4 +18,11 @@ describe ApplicationHelper do
       helper.flash_messages.should == ""
     end
   end
+
+  describe "#js" do
+    it "should escape js and wrap it in quotes" do
+      helper.js('\\').should == '"\\\\"'
+      helper.js('\\').should be_html_safe
+    end
+  end
 end

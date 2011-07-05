@@ -5,3 +5,8 @@
  *= require_self
  *= require_tree . 
 */
+
+#flash_notice {
+  background-color: #FEE;
+  border: solid 1px #F00;
+}

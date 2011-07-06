@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Post do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validations" do
+    it "should raise an error if no user is given" do
+      expect {
+        Factory.create(:post, :user => nil)
+      }.to raise_error(RuntimeError, "@post.user is nil")
+    end
+  end
 end

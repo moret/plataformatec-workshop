@@ -1,5 +1,7 @@
 Workshop::Application.routes.draw do
-  root :to => "home#index"
+  devise_for :users
+
+  root :to => "posts#index"
   
   resources :posts do
       resources :comments, :only => :create, :controller => "posts/comments"

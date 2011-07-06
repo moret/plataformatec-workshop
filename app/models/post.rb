@@ -5,6 +5,10 @@ class Post < ActiveRecord::Base
 
   validate :has_user
 
+  def is_author?(author)
+    author && self.user == author
+  end
+  
   private
 
   def has_user

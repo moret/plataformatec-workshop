@@ -10,3 +10,8 @@ Factory.define :user do |u|
   u.sequence(:email) { |n| "user#{n}@example.com" }
   u.password "123456"
 end
+
+Factory.define :attachment do |a|
+  a.name "Rails Logo"
+  a.attachment File.open("spec/fixtures/rails.png")
+end

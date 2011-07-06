@@ -26,13 +26,14 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = current_user.posts.find(params[:id])
+    build_attachments(@post)
   end
 
   # POST /posts
   # POST /posts.xml
   def create
     @post = current_user.posts.build(params[:post])
-    @post.save
+    build_attachments(@post) unless @post.save
     respond_with(@post)
   end
 

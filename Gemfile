@@ -27,6 +27,8 @@ gem 'jquery-rails'
 gem 'responders', '~> 0.6.4'
 gem 'simple_form', '~> 1.4.2'
 
+gem 'devise', '~> 1.4.2'
+
 gem 'compass', :git => 'https://github.com/chriseppstein/compass.git', :branch => 'rails31'
 
 group :development, :test do

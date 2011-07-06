@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = current_user.posts.build
+    build_attachments(@post)
     respond_with(@post)
   end
 
@@ -49,5 +50,11 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
     @post.destroy
     respond_with(@post)
+  end
+
+  private
+
+  def build_attachments(post)
+    3.times { post.attachments.build }
   end
 end

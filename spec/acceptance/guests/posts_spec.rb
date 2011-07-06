@@ -9,19 +9,24 @@ describe "[Guest] Posts" do
     end
   end
 
-  describe "#is_author?" do
-    it "should return a boolean if the user is the author" do
-      user = Factory.create(:user)
-      post = Factory.create(:post, :user => user)
-      another_user = Factory.create(:user)
-
-      post.is_author?(user).should be
-      post.is_author?(another_user).should_not be
+  describe "when listed" do
+    before(:each) do
+      Factory.create(:post, :created_at => 10.days.ago)
+      Factory.create(:post, :title => "Another title")
     end
 
-    it "should return false if the user is nil" do
-      post = Factory.create(:post)
-      post.is_author?(nil).should_not be
+    it "should show more recent first" do
+      visit posts_path
+
+      within "#posts" do
+        within "tr:nth-child(2)" do
+          page.should have_content("Another title")
+        end
+
+        within "tr:nth-child(3)" do
+          page.should have_content("My frist post")
+        end
+      end
     end
   end
 end

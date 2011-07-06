@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
   def is_author?(author)
     author && self.user == author
   end
+
+  scope :public_listing, order('created_at desc')
   
   private
 

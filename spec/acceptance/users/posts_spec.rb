@@ -1,6 +1,11 @@
 require 'spec_helper'
 
-describe "Posts" do
+describe "[Users] Posts" do
+  before :each do
+    @user = Factory.create(:user)
+    sign_user_in_manually(@user)
+  end
+
   describe "on create" do
     it "should succed if valid", :driver => :selenium do
       visit posts_path

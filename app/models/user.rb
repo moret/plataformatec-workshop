@@ -12,5 +12,6 @@ class User < ActiveRecord::Base
   # @user.update_attributes(:as => :admin)
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
+  has_many :posts
   validates_presence_of :name
 end

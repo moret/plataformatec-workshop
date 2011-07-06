@@ -1,6 +1,7 @@
 Factory.define :post do |p|
   p.title "My frist post"
   p.body "Hello World!"
+  p.association :user
 end
 
 Factory.define :user do |u|

@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
-    @post = Post.new
+    @post = current_user.posts.build
     respond_with(@post)
   end
 
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
-    @post = Post.new(params[:post])
+    @post = current_user.posts.build(params[:post])
     @post.save
     respond_with(@post)
   end

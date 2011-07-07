@@ -9,6 +9,10 @@ class Post < ActiveRecord::Base
 
   before_save :do_geolocalization, :if => :location_changed?
 
+  def has_coordinates?
+    self.lat? && self.lng?
+  end
+
   def is_author?(author)
     author && self.user == author
   end

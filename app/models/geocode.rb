@@ -11,7 +11,7 @@ class Geocode
     def initialize(location, status)
       @location = location
       @status = status
-      super("Geocode failed with status #{status}")
+      super("[Geocode] failed with status #{status}")
     end
   end
 

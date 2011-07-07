@@ -3,7 +3,8 @@ require "spec_helper"
 module GeocodeHelpers
   PLACES = {
     "Rio de Janeiro, Brasil" => File.read('spec/fixtures/rj.json'),
-    "No place known by man, Nowhereland" => '{"results": []}'
+    "No place known by man, Nowhereland" => '{"results": []}',
+    "Bad Place!" => ""
   }
   
   def stub_geocode!(address, status=nil)

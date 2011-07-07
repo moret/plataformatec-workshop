@@ -16,15 +16,15 @@ describe Geocode do
       Geocode.get("No place known by man, Nowhereland").should == [nil, nil]
     end
 
-    # it "should raise an error if result is not 200" do
-    #   begin
-    #     stub_geocode!("Bad Place", 500)
-    #     Geocode.get("Bad Place")
-    #     raise "Should never get here"
-    #   rescue Geocode::Error => e
-    #     e.status.should == 500
-    #     e.message.should == "[Geocode] failed with status 500"
-    #   end
-    # end
+    it "should raise an error if result is not 200" do
+      stub_geocode!("Bad Place", 500)
+      begin
+        Geocode.get("Bad Place")
+        raise "Should never get here"
+      rescue Geocode::Error => e
+        e.status.should == 500
+        e.message.should == "[Geocode] failed with status 500"
+      end
+    end
   end
 end

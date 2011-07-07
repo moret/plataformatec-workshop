@@ -8,6 +8,15 @@
   <%= @post.body %>
 </p>
 
+<h3>Location</h3>
+<p>
+<% if @post.has_coordinates? %>
+  <%= image_tag maps_url(@post.lat, @post.lng), :title => @post.location %>
+<% else %>
+  None or invalid given
+<% end %>
+</p>
+
 <h3>Attachment</h3>
 
 <ul>

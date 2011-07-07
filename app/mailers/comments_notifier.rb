@@ -11,6 +11,8 @@ class CommentsNotifier < ActionMailer::Base
     @post = @comment.post
     @author = @post.user
 
+    attachments["comments.txt"] = comment.body
+
     mail :to => @author.email,
       :subject => "A new comment was added to #{@post.title}"
   end

@@ -1,0 +1,43 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Zimbabwe",
+               "short_name" : "ZW",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Zimbabwe",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : -15.61611080,
+                  "lng" : 33.0677820
+               },
+               "southwest" : {
+                  "lat" : -22.42368350,
+                  "lng" : 25.23695790
+               }
+            },
+            "location" : {
+               "lat" : -19.0154380,
+               "lng" : 29.1548570
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -16.29383360,
+                  "lng" : 33.25275750
+               },
+               "southwest" : {
+                  "lat" : -21.69321470,
+                  "lng" : 25.05695650
+               }
+            }
+         },
+         "types" : [ "country", "political" ]
+      }
+   ],
+   "status" : "OK"
+}

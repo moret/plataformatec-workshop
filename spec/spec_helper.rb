@@ -10,6 +10,10 @@ require 'hermes/perf/shared_connection'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+Faraday.default_connection = Faraday::Connection.new do |b|
+  b.adapter(:test)
+end
+
 RSpec.configure do |config|
   # == Mock Framework
   #

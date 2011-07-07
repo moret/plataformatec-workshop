@@ -29,6 +29,7 @@ gem 'simple_form', '~> 1.4.2'
 gem 'compass', :git => 'https://github.com/chriseppstein/compass.git', :branch => 'rails31'
 gem 'devise', '~> 1.4.2'
 gem 'carrierwave', "~> 0.5.4"
+gem 'faraday', '~> 0.7.3'
 
 group :development, :test do
   gem 'rspec-rails'

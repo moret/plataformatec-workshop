@@ -15,3 +15,8 @@ Factory.define :attachment do |a|
   a.name "Rails Logo"
   a.attachment File.open("spec/fixtures/rails.png")
 end
+
+Factory.define :comment do |c|
+  c.body "Post rulez!"
+  c.association :post
+end

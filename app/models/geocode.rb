@@ -5,6 +5,16 @@ class Geocode
   PATH = "/maps/api/geocode/json"
   URL = HOST + PATH
 
+  class Error < StandardError
+    attr_accessor :location, :status
+
+    def initialize(location, status)
+      @location = location
+      @status = status
+      super("Geocode failed with status #{status}")
+    end
+  end
+
   def self.get(location)
     instance.get(location)
   end
@@ -25,7 +35,9 @@ class Geocode
   # end
 
   def get(location)
+    return [nil, nil] if location.blank?
     response = get_response(location)
+    check_status(location, response.status)
     json = parse_json(response.body)
     first = first_location(json)
     [first["lat"], first["lng"]]
@@ -39,11 +51,21 @@ class Geocode
     end
   end
 
+  def check_status(location, status)
+    if status != 200
+      error = Geocode::Error.new(location, status)
+      Rails.logger.error error.message
+      raise error
+    end
+  end
+
   def parse_json(body)
     ActiveSupport::JSON.decode(body)
   end
 
   def first_location(json)
-    json["results"].first["geometry"]["location"]
+    results = json["results"]
+    return {} if results.blank?
+    results.first["geometry"]["location"]
   end
 end

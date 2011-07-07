@@ -58,17 +58,5 @@ describe "Comments" do
       page.should have_content("can't be blank")
       page.current_path.should == post_path(@post)
     end
-
-    it "should send email to author" do
-      visit post_path(@post)
-
-      fill_in "My comment", :with => "Post rulez!"
-      expect {
-        click_button "Create Comment"
-      }.to change(ActionMailer::Base.deliveries, :size).by(1)
-
-      mail = ActionMailer::Base.deliveries.last
-      mail.to.should =- [@post.user.email]
-    end
   end
 end

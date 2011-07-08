@@ -38,4 +38,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'hermes', '~> 0.4.1'
+  gem 'rcov'
 end

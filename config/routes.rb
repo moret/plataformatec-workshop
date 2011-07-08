@@ -1,6 +1,8 @@
 Workshop::Application.routes.draw do
   devise_for :users
 
+  match "/m/:slug", :to => SlugsController.new
+
   root :to => "posts#index"
   
   resources :posts do

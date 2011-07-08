@@ -1,6 +1,17 @@
 Workshop::Application.routes.draw do
   devise_for :users
 
+  constraints :subdomain => "c" do
+    # Too easy, let's make it the hard way
+    # match "/:slug", :to => "slugs#check"
+
+    match "/:slug" => redirect { |params, request|
+      post = Post.find_by_slug!(params[:slug])
+      port = ":#{request.port}" if request.port != 80
+      "http://#{request.domain}#{port}/posts/#{post.id}"
+    }
+  end
+
   match "/m/:slug", :to => "slugs#check"
 
   root :to => "posts#index"

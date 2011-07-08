@@ -24,4 +24,19 @@ describe "[Guest] Posts slugs" do
       visit "/m/unknown"
     }.to raise_error(ActiveRecord::RecordNotFound)
   end
+
+  it "should redirect based on c.host/* slugs" do
+    Capybara.default_host = "http://c.example.com"
+    visit "/slug_abcd"
+
+    page.should have_content("My frist post")
+
+    expect {
+      visit "/unknown"
+    }.to raise_error(ActiveRecord::RecordNotFound)
+  end
+
+  after(:each) do
+    Capybara.default_host = "http://www.example.com"
+  end
 end

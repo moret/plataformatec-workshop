@@ -5,6 +5,7 @@ Workshop::Application.routes.draw do
     # Too easy, let's make it the hard way
     # match "/:slug", :to => "slugs#check"
 
+    # This way we get out of the subdomain to the domain
     match "/:slug" => redirect { |params, request|
       post = Post.find_by_slug!(params[:slug])
       port = ":#{request.port}" if request.port != 80

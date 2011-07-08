@@ -49,5 +49,8 @@ module Workshop
         g.routing_specs false
         g.view_specs false
     end
+
+    require "slugger"
+    config.middleware.insert_after ActiveRecord::QueryCache, Slugger
   end
 end

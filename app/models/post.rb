@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   has_many :attachments
   belongs_to :user
   validates_presence_of :title, :body
+  validates_uniqueness_of :slug, :if => :slug_changed
 
   validate :has_user
   accepts_nested_attributes_for :attachments, :reject_if => :all_blank

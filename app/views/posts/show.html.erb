@@ -8,6 +8,11 @@
   <%= @post.body %>
 </p>
 
+<p>
+  <b>Slug:</b>
+  <%= @post.slug %>
+</p>
+
 <h3>Location</h3>
 <p>
 <% if @post.has_coordinates? %>

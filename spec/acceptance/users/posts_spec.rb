@@ -14,10 +14,12 @@ describe "[Users] Posts" do
 
       fill_in "Title", :with => "My frist post"
       fill_in "Body", :with => "Hello World!"
+      fill_in "Slug", :with => "slug_abc"
       click_button "Create Post"
 
       page.should have_content("My frist post")
       page.should have_content("Hello World!")
+      page.should have_content("slug_abc")
     end
 
     it "should fail if invalid" do

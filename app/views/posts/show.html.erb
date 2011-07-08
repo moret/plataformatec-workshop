@@ -24,11 +24,13 @@
 
 <h3>Attachment</h3>
 
+<% cache "attachments_for_post_#{@post.id}" do %>
 <ul>
   <% @post.attachments.each do |attachment| %>
     <li><%= link_to attachment.name, attachment.attachment_url %></li>
   <% end %>
 </ul>
+<% end %>
 
 <h3>Comments</h3>
 
